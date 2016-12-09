@@ -10,6 +10,10 @@ Instead -- it provides you an API that allows you to determine, in code, what yo
 
 This way you can align your various logging modules (morgan, winston and custom, for instance) to the same value.
 
+## Installation
+
+`npm i -S levelog` should do.
+
 ## API
 
 The API is very simple -- provided you required the `log-level` module in the following manner:
@@ -34,7 +38,7 @@ each corresponding to the current log level as set by `process.env.LOG_LEVEL`.
 You can, alternatively, override the function that determines the log level and the default log level (`INFO` instead of `TRACE`, in example below):
 
 ```
-const init = require('log-level/lib/custom');
+const init = require('levelog/lib/custom');
 
 LOG_LEVEL = init(function(level) {
     return (process.env.LOG_LEVEL === level.toLowerCase());
