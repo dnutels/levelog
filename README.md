@@ -31,26 +31,14 @@ each corresponding to the current log level as set by `process.env.LOG_LEVEL`.
 
 ## Custom Decision Function
 
-You can, alternatively, override the function that determines the log level:
+You can, alternatively, override the function that determines the log level and the default log level (`INFO` instead of `TRACE`, in example below):
 
 ```
 const init = require('log-level/lib/custom');
 
-LOG_LEVEL = init((level) => {
-    let result;
-
-    switch(level) {
-    case 'TRACE':
-        result = process.env.MY_LOG_LEVEL === 'trace';
-        break;
-    case 'DEBUG':
-        result = process.env.MY_LOG_LEVEL === 'my-info';
-        break;
-    default:
-        ...
-        break;
-    }
-});
+LOG_LEVEL = init(function(level) {
+    return (process.env.LOG_LEVEL === level.toLowerCase());
+}, 'INFO');
 ```
 
 which would then allow you to call the same API:
