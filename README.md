@@ -1,4 +1,4 @@
-# log-level
+# levelog
 
 A small Node library that determines your current log level.
 
