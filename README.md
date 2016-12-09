@@ -10,16 +10,35 @@ Instead -- it provides you an API that allows you to determine, in code, what yo
 
 This way you can align your various logging modules (morgan, winston and custom, for instance) to the same value.
 
+## API
+
+The API is very simple -- provided you required the `log-level` module in the following manner:
+
+```
+const LOG_LEVEL = require('log-level');
+```
+
+`LOG_LEVEL` provides the following __immutable__ properties:
+
+- `TRACE`
+- `DEBUG`
+- `INFO`
+- `WARNING`
+- `ERROR`
+- `FATAL`
+
+each corresponding to the current log level as set by `process.env.LOG_LEVEL`.
+
 ## Custom Decision Function
 
 You can, alternatively, override the function that determines the log level:
 
 ```
-const LOG_LEVEL = require('log-level/custom');
+const init = require('log-level/lib/custom');
 
-LOG_LEVEL.init((level) => {
+LOG_LEVEL = init((level) => {
     let result;
-    
+
     switch(level) {
     case 'TRACE':
         result = process.env.MY_LOG_LEVEL === 'trace';
