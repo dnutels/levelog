@@ -4,9 +4,9 @@ A small Node library that determines your current log level.
 
 ## Overview
 
-Most logging libraries are just that -- _logging_ libraries. This one is different. It doesn't try to log your messages or connect to some fancy cloud-based aggregation service.
+Most logging libraries are just that - __logging__ libraries. __This one is different__. It doesn't try to log your messages or connect to some fancy cloud-based aggregation service.
 
-Instead -- it provides you an API that allows you to determine, in code, what your current level is -- based on `process.evn.LOG_LEVEL` environmental variable.
+Instead - it provides you an API that allows you to determine, in code, what your current level is - based on `process.evn.LOG_LEVEL` environmental variable.
 
 This way you can align your various logging modules (morgan, winston and custom, for instance) to the same value.
 
@@ -16,7 +16,7 @@ This way you can align your various logging modules (morgan, winston and custom,
 
 ## API
 
-The API is very simple -- provided you required the `levelog` module in the following manner:
+The API is very simple - provided you required the `levelog` module in the following manner:
 
 ```
 const LOG_LEVEL = require('levelog');
@@ -49,6 +49,16 @@ which would then allow you to call the same API:
 
 ```
 if (LOG_LEVEL.INFO) {
+    // do something when the log level is set to INFO
+}
+```
+
+## Future Plans
+
+In addition to the current API, there will be a comparative API that would look something like this:
+
+```
+if (LOG_LEVEL.greaterOrEqual(INFO)) {
     // do something when the log level is set to INFO
 }
 ```
