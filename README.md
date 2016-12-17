@@ -12,14 +12,14 @@ This way you can align your various logging modules (morgan, winston and custom,
 
 ## Installation
 
-`npm i -S levelog` should do.
+`npm install --save-dev levelog`
 
 ## API
 
-The API is very simple -- provided you required the `log-level` module in the following manner:
+The API is very simple -- provided you required the `levelog` module in the following manner:
 
 ```
-const LOG_LEVEL = require('log-level');
+const LOG_LEVEL = require('levelog');
 ```
 
 `LOG_LEVEL` provides the following __immutable__ properties:
